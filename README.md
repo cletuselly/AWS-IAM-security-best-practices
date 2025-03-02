@@ -185,15 +185,7 @@ aws lambda create-function --function-name IAMAuditFunction --runtime python3.8 
 - Upload `lambda-iam-audit.py` to AWS Lambda.
 - Set up a CloudWatch Event Rule to trigger it periodically.
 
----
-
-## **🔗 GitHub Repository**
-
-[GitHub Repo Link Here]
-
----
-
-## **📝 Final Thoughts**
+**📝 Final Thoughts**
 
 This project enhances AWS security by enforcing best practices in IAM. By **restricting permissions, enabling MFA, detecting misconfigurations, and automating audits**, we create a more secure cloud environment.
 
