@@ -1,0 +1,17 @@
+import boto3
+
+iam = boto3.client('iam')
+
+def check_inactive_users():
+    users = iam.list_users()
+    for user in users['Users']:
+        last_used = iam.get_user(UserName=user['UserName']).get('PasswordLastUsed', None)
+        if not last_used:
+            print(f"User {user['UserName']} is inactive and should be reviewed.")
+
+def lambda_handler(event, context):
+    check_inactive_users()
+    return {
+        'statusCode': 200,
+        'body': 'IAM Audit Completed'
+    }
